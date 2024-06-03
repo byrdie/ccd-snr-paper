@@ -24,7 +24,15 @@ def document() -> pylatex.Document:
         ],
     )
 
+    author_1 = pylatex.Command(
+        command="author",
+        arguments=[
+            "Roy T. Smart",
+        ],
+    )
+
     doc.preamble.append(title)
+    doc.preamble.append(author_1)
 
     doc.append(pylatex.Command("maketitle"))
 
