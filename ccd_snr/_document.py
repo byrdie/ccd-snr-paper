@@ -10,7 +10,7 @@ __all__ = [
 
 def document() -> aastex.Document:
     """
-    A :class:`aastex` representation of the article.
+    A :mod:`aastex` representation of the article.
     """
 
     doc = aastex.Document(
