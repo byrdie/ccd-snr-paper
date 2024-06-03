@@ -40,7 +40,7 @@ def pdf() -> pathlib.Path:
 
     doc = document()
 
-    path = pathlib.Path(__file__).parent / "ccd-snr"
+    path = pathlib.Path(__file__).parent / "ccd-euv-snr"
     doc.generate_pdf(
         filepath=path,
         clean_tex=False,
