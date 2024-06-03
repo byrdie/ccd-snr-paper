@@ -9,9 +9,9 @@ __all__ = [
 ]
 
 
-def document() -> pylatex.Document:
+def document() -> aastex.Document:
     """
-    A :class:`pylatex.Document` representation of the article.
+    A :class:`aastex` representation of the article.
     """
 
     doc = aastex.Document(

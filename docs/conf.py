@@ -87,4 +87,5 @@ bibtex_reference_style = 'author_year'
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'pylatex': ('https://jeltef.github.io/PyLaTeX/current/', None),
+    'aastex': ('https://aastex.readthedocs.io/en/latest/', None),
 }
