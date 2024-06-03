@@ -15,12 +15,12 @@ jobs:
       matrix:
         os: [
           ubuntu-latest,
-          windows-latest,
-          macOS-latest,
         ]
         python-version: ["3.10", "3.12"]
-    name: ${{ matrix.os }}, Python ${{ matrix.python-version }} lint and test
+    name: ${{ matrix.os }}, Python ${{ matrix.python-version }} test
     steps:
+      - name: Install LaTeX
+        run: sudo apt-get install texlive-publishers
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2

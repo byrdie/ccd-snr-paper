@@ -20,7 +20,7 @@ def document() -> pylatex.Document:
     title = pylatex.Command(
         command="title",
         arguments=[
-            "My temporary title"
+            "My temporary title",
         ]
     )
 
