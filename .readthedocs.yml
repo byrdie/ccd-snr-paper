@@ -9,7 +9,7 @@ build:
     - texlive-publishers
   jobs:
     post_build:
-      - python -c 'import ccd_snr; ccd_snr.pdf()'
+      - python -c "import ccd_snr; ccd_snr.pdf()"
       - mv ccd_snr/ccd-euv-snr.pdf $READTHEDOCS_OUTPUT/pdf/
 
 sphinx:
