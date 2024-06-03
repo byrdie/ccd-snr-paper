@@ -15,24 +15,61 @@ def document() -> pylatex.Document:
     doc = pylatex.Document(
         documentclass="spieman",
         document_options="12pt",
+        lmodern=False,
+        textcomp=False,
     )
 
     title = pylatex.Command(
         command="title",
         arguments=[
-            "My temporary title",
+            "On the Signal-to-noise Ratio of Charged-coupled Devices in the "
+            "Extreme Ultraviolet Regime",
         ],
     )
 
-    author_1 = pylatex.Command(
+    roy = pylatex.Command(
         command="author",
-        arguments=[
-            "Roy T. Smart",
-        ],
+        arguments="Roy T. Smart",
+        options="a",
+    )
+
+    charles = pylatex.Command(
+        command="author",
+        arguments="Charles C. Kankelborg",
+        options="a",
+    )
+
+    jake = pylatex.Command(
+        command="author",
+        arguments="Jacob D. Parker",
+        options="b",
+    )
+
+    msu = pylatex.Command(
+        command="affil",
+        arguments="Montana State University, "
+        "Department of Physics, "
+        "P.O. Box 173840, "
+        "Bozeman, MT 59717",
+        options="a",
+    )
+
+    gsfc = pylatex.Command(
+        command="affil",
+        arguments="Goddard Space Flight Center, "
+        "8800 Greenbelt Rd, "
+        "Greenbelt, MD 20771",
+        options="b",
     )
 
     doc.preamble.append(title)
-    doc.preamble.append(author_1)
+
+    doc.preamble.append(roy)
+    doc.preamble.append(charles)
+    doc.preamble.append(jake)
+
+    doc.preamble.append(msu)
+    doc.preamble.append(gsfc)
 
     doc.append(pylatex.Command("maketitle"))
 
