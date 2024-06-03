@@ -1,5 +1,4 @@
 import pathlib
-import pylatex
 import aastex
 import ccd_snr
 
