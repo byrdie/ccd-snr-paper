@@ -48,17 +48,17 @@ def document() -> pylatex.Document:
     msu = pylatex.Command(
         command="affil",
         arguments="Montana State University, "
-                  "Department of Physics, "
-                  "P.O. Box 173840, "
-                  "Bozeman, MT 59717",
+        "Department of Physics, "
+        "P.O. Box 173840, "
+        "Bozeman, MT 59717",
         options="a",
     )
 
     gsfc = pylatex.Command(
         command="affil",
         arguments="Goddard Space Flight Center, "
-                  "8800 Greenbelt Rd, "
-                  "Greenbelt, MD 20771",
+        "8800 Greenbelt Rd, "
+        "Greenbelt, MD 20771",
         options="b",
     )
 
