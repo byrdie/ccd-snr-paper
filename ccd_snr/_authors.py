@@ -24,7 +24,7 @@ def authors() -> list[aastex.Author]:
     roy = aastex.Author(
         name="Roy T. Smart",
         affiliation=msu,
-        email="roytsmart@gmail.com"
+        email="roytsmart@gmail.com",
     )
 
     charles = aastex.Author(
