@@ -13,7 +13,7 @@ def document() -> pylatex.Document:
     """
 
     doc = pylatex.Document(
-        documentclass="spie",
+        documentclass="spieman",
         document_options="12pt",
     )
 
