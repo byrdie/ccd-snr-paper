@@ -29,5 +29,5 @@ def authors() -> list[aastex.Author]:
         roy,
         charles,
         jake,
-        aastex.CorrespondingAuthor(roy.name, email="roytsmart@gmail.com")
+        aastex.CorrespondingAuthor(roy.name, email="roytsmart@gmail.com"),
     ]
