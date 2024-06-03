@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ccd-snr-paper"
+authors = [
+    {name = "Roy T. Smart", email = "roytsmart@gmail.com"},
+]
+description = "An article investigating CCD SNR in the extreme ultraviolet regime."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "PyLatex",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+doc = [
+    "pytest",
+]
+
+[project.urls]
+Homepage = "https://github.com/byrdie/ccd-snr-paper"
+
+[tool.setuptools_scm]
