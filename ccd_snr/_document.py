@@ -21,7 +21,7 @@ def document() -> pylatex.Document:
         command="title",
         arguments=[
             "My temporary title",
-        ]
+        ],
     )
 
     doc.preamble.append(title)
