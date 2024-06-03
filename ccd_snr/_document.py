@@ -1,5 +1,7 @@
 import pathlib
 import pylatex
+import aastex
+import ccd_snr
 
 __all__ = [
     "document",
@@ -12,68 +14,28 @@ def document() -> pylatex.Document:
     A :mod:`pylatex` representation of the article.
     """
 
-    doc = pylatex.Document(
-        documentclass="spieman",
-        document_options="12pt",
+    doc = aastex.Document(
+        documentclass="aastex631",
+        document_options=[
+            "twocolumn",
+        ],
         lmodern=False,
         textcomp=False,
     )
 
-    title = pylatex.Command(
-        command="title",
-        arguments=[
-            "On the Signal-to-noise Ratio of Charged-coupled Devices in the "
-            "Extreme Ultraviolet Regime",
-        ],
+    title = aastex.Title(
+        "On the Signal-to-noise Ratio of Charged-coupled Devices in the "
+        "Extreme Ultraviolet Regime",
     )
 
-    roy = pylatex.Command(
-        command="author",
-        arguments="Roy T. Smart",
-        options="a",
-    )
+    doc.append(title)
 
-    charles = pylatex.Command(
-        command="author",
-        arguments="Charles C. Kankelborg",
-        options="a",
-    )
+    doc += ccd_snr.authors()
 
-    jake = pylatex.Command(
-        command="author",
-        arguments="Jacob D. Parker",
-        options="b",
-    )
+    introduction = aastex.Section("Introduction")
+    introduction.append("testing")
 
-    msu = pylatex.Command(
-        command="affil",
-        arguments="Montana State University, "
-        "Department of Physics, "
-        "P.O. Box 173840, "
-        "Bozeman, MT 59717",
-        options="a",
-    )
-
-    gsfc = pylatex.Command(
-        command="affil",
-        arguments="Goddard Space Flight Center, "
-        "8800 Greenbelt Rd, "
-        "Greenbelt, MD 20771",
-        options="b",
-    )
-
-    doc.preamble.append(title)
-
-    doc.preamble.append(roy)
-    doc.preamble.append(charles)
-    doc.preamble.append(jake)
-
-    doc.preamble.append(msu)
-    doc.preamble.append(gsfc)
-
-    doc.append(pylatex.Command("maketitle"))
-
-    doc.append("test")
+    doc.append(introduction)
 
     return doc
 
