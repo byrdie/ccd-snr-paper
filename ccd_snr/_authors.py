@@ -6,6 +6,9 @@ __all__ = [
 
 
 def authors() -> list[aastex.Author]:
+    """
+    A list of the authors of this article and their affiliations.
+    """
 
     msu = aastex.Affiliation(
         "Montana State University, "

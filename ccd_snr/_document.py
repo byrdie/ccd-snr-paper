@@ -11,7 +11,7 @@ __all__ = [
 
 def document() -> pylatex.Document:
     """
-    A :mod:`pylatex` representation of the article.
+    A :class:`pylatex.Document` representation of the article.
     """
 
     doc = aastex.Document(
