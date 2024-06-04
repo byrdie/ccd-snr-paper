@@ -22,19 +22,24 @@ def document() -> aastex.Document:
         textcomp=False,
     )
 
-    title = aastex.Title(
-        "On the Signal-to-noise Ratio of Charged-coupled Devices in the "
-        "Extreme Ultraviolet Regime",
-    )
+    doc.packages.append(aastex.Package("amsmath"))
 
+    doc.preamble += ccd_snr.acronyms()
+    doc.variables += ccd_snr.variables()
+
+    title = aastex.Title(
+        "On the Signal-to-noise Ratio of Backilluminated CCDs in the "
+        "Ultraviolet Regime",
+    )
     doc.append(title)
 
     doc += ccd_snr.authors()
 
-    introduction = aastex.Section("Introduction")
-    introduction.append("testing")
+    doc.append(ccd_snr.sections.abstract())
+    doc.append(ccd_snr.sections.introduction())
+    doc.append(ccd_snr.sections.model())
 
-    doc.append(introduction)
+    doc.append(aastex.Bibliography("sources"))
 
     return doc
 
