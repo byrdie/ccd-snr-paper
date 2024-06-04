@@ -1,13 +1,14 @@
 import aastex
 
 __all__ = [
-    "abstract"
+    "abstract",
 ]
 
 
 def abstract() -> aastex.Abstract:
     result = aastex.Abstract()
-    result.append(r"""
+    result.append(
+        r"""
 \Acp{CCD} are a critical component for solar \EUV\ astronomy.
 Their high sensitivity and low noise are important for making solar
 \EUV\ telescopes practical.

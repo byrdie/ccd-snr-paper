@@ -1,7 +1,7 @@
 import aastex
 
 __all__ = [
-    "model"
+    "model",
 ]
 
 
