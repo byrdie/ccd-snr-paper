@@ -1,3 +1,6 @@
+"""
+Create the figures and compile the LaTeX files for this article.
+"""
 from ._acronyms import acronyms
 from ._variables import variables
 from ._authors import authors

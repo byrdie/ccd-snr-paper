@@ -6,6 +6,9 @@ __all__ = [
 
 
 def acronyms() -> list[aastex.Acronym]:
+    """
+    A list of acronyms that are used in the body of the article.
+    """
     return [
         aastex.Acronym("CCD", "charge-coupled device", plural=True),
         aastex.Acronym("FUV", "far ultraviolet"),

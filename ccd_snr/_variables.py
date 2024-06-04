@@ -7,6 +7,9 @@ __all__ = [
 
 
 def variables() -> list[aastex.Command]:
+    """
+    A list of numeric variables used in this article.
+    """
     return [
         aastex.Variable(
             name="bandgapEnergy",
