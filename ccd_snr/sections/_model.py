@@ -4,18 +4,23 @@ __all__ = [
     "model",
 ]
 
+import ccd_snr.figures
+
 
 def model() -> aastex.Section:
-    result = aastex.Section("Model")
+    result = aastex.Section("CCD Model")
     result.append(
         r"""
 In this work, we will model the light-sensitive region of the backilluminated 
 \CCD\ sensor as a epitaxial silicon layer with a given thickness which is coated
 with a thin oxide layer to provide a realistic transmission coefficent.
 The illuminated side of the epitaxial layer is considered to be implanted with ions
-up to a given depth to create the electric field within the sensor.
-        
-The \QE\ is the most common metric for measuring \CCD\ sensitivity and is given 
+up to a given depth to create the electric field within the sensor."""
+    )
+    subsection_qe = aastex.Subsection("Quantum Efficiency")
+    subsection_qe.append(
+        r"""
+The \QE\ is a common performance metric for measuring \CCD\ sensitivity and is given 
 by \citet{Janesick2001} as
 \begin{equation} \label{quantum-efficiency}
     \text{QE}(\lambda) = \frac{N_{e}(\lambda)}{N_\gamma}
@@ -45,7 +50,7 @@ The ideal \QY\ is given by \citet{Janesick2001} as
         E_\text{eh} / \epsilon, & E_\text{eh} < \epsilon < \infty,
     \end{cases}
 \end{equation}
-where $\epsilon = h \nu$ is the energy of an incident photon, 
+where $\epsilon$ is the energy of an incident photon, 
 $E_\text{g} = \bandgapEnergy$ is the bandgap energy of silicon,
 and $E_\text{eh} = \electronHoleEnergy$ is the energy required to generate one
 electron-hole pair at room temperature.
@@ -84,4 +89,51 @@ arithmetic expression for the \CCE,
 which can be used in Equation \ref{quantum-efficiency} to determine the \QE.
 """
     )
+    subsection_noise = aastex.Subsection("Noise")
+    subsection_noise.append(
+        r"""
+In the case of ultraviolet solar astronomy, the leading noise component is almost
+always photon shot noise, described by a Poisson distribution (citation?).
+The width of this distribution depends on the number of photons measured by the
+sensor (photons which are associated with at least one measured photoelectron),
+$N_{\gamma,\text{m}}$.
+
+In \citet{Stern1994}, the authors define an effective \QE\ as
+\begin{equation}
+    \text{EQE}(\lambda) = T(\lambda) \times \text{CCE}(\lambda),
+\end{equation}
+an example of which is plotted in Figure \ref{fig:eqe}.
+"""
+    )
+    subsection_noise.append(ccd_snr.figures.qe_effective())
+    subsection_noise.append(
+        r"""
+
+The number of measured photons can be expressed as a product of
+the transmissivity of the sensor's back surface,
+the probability that at least one electron will be measured by the sensor, $P_\text{m}(\lambda)$,
+and the total number of incident photons, $N_\gamma$,
+\begin{equation}
+    N_{\gamma,\text{m}} = T(\lambda) P_\text{m}(\lambda) N_\gamma.
+\end{equation}
+The fraction of photons which result in photoelectrons that completely recombine
+before being measured, $P_\text{r}(\lambda) = 1 - P_\text{m}(\lambda)$,
+is given by a binomial distribution and simplifies to:
+\begin{equation}
+    P_\text{r}(\lambda) = \left[ 1 - \text{CCE}(\lambda) \right]^{\text{IQY}(\lambda)}.
+\end{equation}
+We can invert this probability to obtain an expression for the number of
+measured photons, $N_{\gamma,\text{meas}}$, in terms of the total number of
+incident photons and the transmissivity of the sensor surface:
+\begin{equation}
+    N_{\gamma,\text{meas}} = T(\lambda) [1 - p_r(\lambda)] N_\gamma.
+\end{equation}
+$N_{\gamma,\text{meas}}$ is an important quantity since it is the parameter of the
+Poisson distribution describing the noise measured by the sensor.
+In visible light, the ideal \QY\ is unity 
+"""
+    )
+
+    result.append(subsection_qe)
+    result.append(subsection_noise)
     return result

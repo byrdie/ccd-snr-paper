@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import pathlib
 import aastex
 import ccd_snr
@@ -13,6 +14,11 @@ def document() -> aastex.Document:
     An :mod:`aastex` representation of the article.
     """
 
+    plt.rcParams["text.usetex"] = True
+    plt.rcParams["font.family"] = "serif"
+    plt.rcParams["font.size"] = 9
+    plt.rcParams["lines.linewidth"] = 1
+
     doc = aastex.Document(
         documentclass="aastex631",
         document_options=[
@@ -23,6 +29,7 @@ def document() -> aastex.Document:
     )
 
     doc.packages.append(aastex.Package("amsmath"))
+    doc.packages.append(aastex.Package("hyperref"))
 
     doc.preamble += ccd_snr.acronyms()
     doc.variables += ccd_snr.variables()
