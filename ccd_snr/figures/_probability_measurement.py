@@ -50,10 +50,8 @@ def probability_measurement() -> aastex.Figure:
     result.add_caption(
         aastex.NoEscape(
             r"""
-The probability of measuring a photon vs. wavelength for the \AIA\ \CCDs,
-computed using Equation \ref{probability-measurement}.
-This is intended to demonstrate the effects of recombination on the number
-of measured photons: for long wavelengths, $P_\text{m}(\lambda) \sim \text{\CCE}(\lambda)$
+The probability of measuring a photon vs. wavelength for the \AIA\ \CCDs.
+Plotted for comparison is the \CCE\ for the \AIA\ \CCDs.
 """
         )
     )

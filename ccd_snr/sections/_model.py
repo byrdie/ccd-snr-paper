@@ -101,9 +101,12 @@ example.
 """
     )
     subsection_qe.append(ccd_snr.figures.qe_effective())
+    result.append(subsection_qe)
+
     subsection_noise = aastex.Subsection("Noise")
-    subsection_noise.append(ccd_snr.figures.probability_measurement())
-    subsection_noise.append(
+    subsubsection_noise_shot = aastex.Subsubsection("Shot Noise")
+    subsubsection_noise_shot.append(ccd_snr.figures.probability_measurement())
+    subsubsection_noise_shot.append(
         r"""
 Ultraviolet solar astronomy is almost always shot-noise limited.
 The shot noise measured by the \CCD\ is described by a Poisson distribution with 
@@ -130,12 +133,24 @@ in Figure~\ref{fig:probability}.
 For short (visible) wavelengths,
 $P_\text{m}(\lambda) \approx \text{CCE}(\lambda)$
 since the ideal \QY\ is unity, and for long (X-ray) wavelengths, 
-$P_\text{m}(\lambda) \approx 1$ since the ideal \QY\ is a large.
+$P_\text{m}(\lambda) \approx 1$ since the ideal \QY\ is large.
 However, in ultraviolet wavelengths, $P_\text{m}(\lambda)$ is more complicated
 and smoothly connects these two extremes. 
 """
     )
-
-    result.append(subsection_qe)
+    subsection_noise.append(subsubsection_noise_shot)
+    subsubsection_noise_fano = aastex.Subsubsection("Fano Noise")
+    subsubsection_noise_fano.append(
+        r"""
+The Fano noise for silicon is commonly accepted to have a Fano factor of about 0.1.
+This is usually measured with X-rays from $^{55}$Fe sources which have a high \QY.
+For ultraviolet wavelengths, where the \QY\ is much lower, it becomes impossible
+to construct a distribution narrow enough to be consistent with a Fano factor 
+that small.
+"""
+    )
+    subsection_noise.append(subsubsection_noise_fano)
+    subsubsection_noise_recombination = aastex.Subsubsection("Recombination Noise")
+    subsection_noise.append(subsubsection_noise_recombination)
     result.append(subsection_noise)
     return result
