@@ -27,7 +27,7 @@ def qe_effective() -> aastex.Figure:
             wavelength=wavelength,
             direction=na.Cartesian3dVectorArray(0, 0, 1),
         ),
-        normal=na.Cartesian3dVectorArray(0, 0, -1)
+        normal=na.Cartesian3dVectorArray(0, 0, -1),
     )
 
     fig, ax = plt.subplots(
