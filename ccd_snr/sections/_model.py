@@ -12,10 +12,11 @@ def model() -> aastex.Section:
     result.append(
         r"""
 In this work, we will model the light-sensitive region of the backilluminated 
-\CCD\ sensor as a epitaxial silicon layer with a given thickness which is coated
-with a thin oxide layer to provide a realistic transmission coefficent.
+\CCD\ sensor as a epitaxial silicon layer with a thickness $D$, which is coated
+with a thin oxide layer of thickness $\delta$ to provide a realistic transmission 
+coefficent.
 The illuminated side of the epitaxial layer is considered to be implanted with ions
-up to a given depth to create the electric field within the sensor."""
+up to a depth $W$ to create the electric field within the sensor."""
     )
     subsection_qe = aastex.Subsection("Quantum Efficiency")
     subsection_qe.append(
@@ -78,38 +79,39 @@ the differential \CCE,
         0, & D < z < \infty
     \end{cases}
 \end{equation}
-where $\eta_0$ is the differential \CCE\ at the back surface of the sensor,
-$W$ is the thickness of the implant region,
-and $D$ is the thickness of the epitaxial layer.
+where $\eta_0$ is the differential \CCE\ at the back surface of the sensor.
 Plugging Equation \ref{differential-cce} into Equation \ref{cce} yields an
 arithmetic expression for the \CCE,
 \begin{equation}
     \text{CCE}(\lambda) = \eta_0 + \left( \frac{1 - \eta_0}{\alpha W} \right)(1 - e^{-\alpha W}) - e^{-\alpha D},
 \end{equation}
 which can be used in Equation \ref{quantum-efficiency} to determine the \QE.
+
+In \citet{Stern1994}, the authors define an effective \QE\ as
+\begin{equation} \label{eqe}
+    \text{EQE}(\lambda) = T(\lambda) \times \text{CCE}(\lambda),
+\end{equation}
+which is the quantity that is typically measured when calibrating a \CCD\ sensor
+\citep{Stern1994,Stern2004,Boerner2012}.
+In Figure \ref{fig:eqe}, we've plotted the measured, effective \QE\ of the
+\AIA\ \CCDs, and a fit of Equation \ref{eqe} to the data, which varied $\eta_0$,
+$\delta$, and $W$, while holding $D$ constant.
+We will use these fit parameters in the remainder of this article as a representative
+example.
 """
     )
+    subsection_qe.append(ccd_snr.figures.qe_effective())
     subsection_noise = aastex.Subsection("Noise")
     subsection_noise.append(
         r"""
-In the case of ultraviolet solar astronomy, the leading noise component is almost
-always photon shot noise, described by a Poisson distribution (citation?).
-The width of this distribution depends on the number of photons measured by the
-sensor (photons which are associated with at least one measured photoelectron),
-$N_{\gamma,\text{m}}$.
-
-In \citet{Stern1994}, the authors define an effective \QE\ as
-\begin{equation}
-    \text{EQE}(\lambda) = T(\lambda) \times \text{CCE}(\lambda),
-\end{equation}
-an example of which is plotted in Figure \ref{fig:eqe}.
-"""
-    )
-    subsection_noise.append(ccd_snr.figures.qe_effective())
-    subsection_noise.append(
-        r"""
-
-The number of measured photons can be expressed as a product of
+Ultraviolet solar astronomy is almost always shot-noise limited.
+The shot noise measured by the \CCD\ is described by a Poisson distribution with 
+variance, $N_{\gamma,\text{m}}$, the number of photons measured by the sensor 
+(photons which are associated with at least one measured photoelectron).
+In visible light, $N_{\gamma,\text{m}} = N_\gamma \times \text{EQE}(\lambda)$
+since the ideal \QY\ is unity.
+        
+The true number of measured photons can be expressed as a product of
 the transmissivity of the sensor's back surface,
 the probability that at least one electron will be measured by the sensor, $P_\text{m}(\lambda)$,
 and the total number of incident photons, $N_\gamma$,

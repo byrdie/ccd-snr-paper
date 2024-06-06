@@ -16,15 +16,18 @@ def qe_effective() -> aastex.Figure:
 
     result = aastex.Figure("eqe", position="htb!")
 
+    ccd = optika.sensors.E2VCCDAIAMaterial()
+
+    eqe_measured = ccd.quantum_efficiency_measured
+
     wavelength = na.geomspace(10, 10000, axis="wavelength", num=1001) * u.AA
 
-    eqe = optika.sensors.quantum_efficiency_effective(
-        wavelength=wavelength,
-    )
-
-    eqe_max = optika.sensors.quantum_efficiency_effective(
-        wavelength=wavelength,
-        cce_backsurface=1,
+    eqe = ccd.quantum_efficiency_effective(
+        rays=optika.rays.RayVectorArray(
+            wavelength=wavelength,
+            direction=na.Cartesian3dVectorArray(0, 0, 1),
+        ),
+        normal=na.Cartesian3dVectorArray(0, 0, -1)
     )
 
     fig, ax = plt.subplots(
@@ -35,28 +38,32 @@ def qe_effective() -> aastex.Figure:
         wavelength,
         eqe,
         ax=ax,
-        label="effective QE",
+        label=r"empirical fit",
     )
-    na.plt.plot(
-        wavelength,
-        eqe_max,
+    na.plt.scatter(
+        eqe_measured.inputs,
+        eqe_measured.outputs,
         ax=ax,
-        label="transmissivity",
+        label="measurement",
+        s=10,
     )
     ax.set_xscale("log")
     ax.set_xlabel(f"wavelength ({wavelength.unit:latex_inline})")
-    ax.set_ylabel("efficiency")
+    ax.set_ylabel("effective quantum efficiency")
     ax.legend()
 
+    result.append(aastex.NoEscape(r"\vspace{5pt}"))
     result.add_fig(fig, width=None)
 
     result.add_caption(
         aastex.NoEscape(
             r"""
-A reproduction of Figure 12 of \citet{Stern1994} showing the theoretical, effective
-\QE\ vs. wavelength of a Tektronix $512 \times 512$ pixel \CCD\ calculated using
-\href{https://optika.readthedocs.io/en/latest/_autosummary/optika.sensors.quantum_efficiency_effective.html}
-{\texttt{optika.sensors.quantum\_efficiency\_effective()}}
+A reproduction of Figure 6 of \citet{Boerner2012} that plots the measured,
+effective \QE\ of the \AIA\ \CCDs\ against the \citet{Stern1994} model with
+$\eta_0 = \backsurfaceCCE$, 
+$\delta = \oxideThickness$,
+$W = \implantThickness$,
+and $D = \substrateThickness$.
 """
         )
     )
