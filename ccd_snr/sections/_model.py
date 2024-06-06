@@ -102,19 +102,19 @@ example.
     )
     subsection_qe.append(ccd_snr.figures.qe_effective())
     subsection_noise = aastex.Subsection("Noise")
+    subsection_noise.append(ccd_snr.figures.probability_measurement())
     subsection_noise.append(
         r"""
 Ultraviolet solar astronomy is almost always shot-noise limited.
 The shot noise measured by the \CCD\ is described by a Poisson distribution with 
 variance, $N_{\gamma,\text{m}}$, the number of photons measured by the sensor 
 (photons which are associated with at least one measured photoelectron).
-In visible light, $N_{\gamma,\text{m}} = N_\gamma \times \text{EQE}(\lambda)$
-since the ideal \QY\ is unity.
         
-The true number of measured photons can be expressed as a product of
+$N_{\gamma,\text{m}}$ can be expressed as a product of
 the transmissivity of the sensor's back surface,
-the probability that at least one electron will be measured by the sensor, $P_\text{m}(\lambda)$,
-and the total number of incident photons, $N_\gamma$,
+the probability that at least one electron will be measured by the sensor, 
+$P_\text{m}(\lambda)$,
+and the total number of incident photons, $N_\gamma$:
 \begin{equation}
     N_{\gamma,\text{m}} = T(\lambda) P_\text{m}(\lambda) N_\gamma.
 \end{equation}
@@ -124,15 +124,15 @@ is given by a binomial distribution and simplifies to:
 \begin{equation}
     P_\text{r}(\lambda) = \left[ 1 - \text{CCE}(\lambda) \right]^{\text{IQY}(\lambda)}.
 \end{equation}
-We can invert this probability to obtain an expression for the number of
-measured photons, $N_{\gamma,\text{meas}}$, in terms of the total number of
-incident photons and the transmissivity of the sensor surface:
-\begin{equation}
-    N_{\gamma,\text{meas}} = T(\lambda) [1 - p_r(\lambda)] N_\gamma.
-\end{equation}
-$N_{\gamma,\text{meas}}$ is an important quantity since it is the parameter of the
-Poisson distribution describing the noise measured by the sensor.
-In visible light, the ideal \QY\ is unity 
+
+An example calculation of $P_\text{m}(\lambda)$ for the \AIA\ sensors is plotted 
+in Figure~\ref{fig:probability}.
+For short (visible) wavelengths,
+$P_\text{m}(\lambda) \approx \text{CCE}(\lambda)$
+since the ideal \QY\ is unity, and for long (X-ray) wavelengths, 
+$P_\text{m}(\lambda) \approx 1$ since the ideal \QY\ is a large.
+However, in ultraviolet wavelengths, $P_\text{m}(\lambda)$ is more complicated
+and smoothly connects these two extremes. 
 """
     )
 
