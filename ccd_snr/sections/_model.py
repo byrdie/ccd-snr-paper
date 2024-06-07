@@ -128,7 +128,7 @@ is given by
 
 An example calculation of $P_\text{m}(\lambda)$ for the \AIA\ sensors is plotted 
 in Figure~\ref{fig:probability}.
-For short (visible) wavelengths,
+For long wavelengths,
 $P_\text{m}(\lambda) \approx \text{CCE}(\lambda)$
 since the ideal \QY\ is unity, and for long (X-ray) wavelengths, 
 $P_\text{m}(\lambda) \approx 1$ since the ideal \QY\ is large.
