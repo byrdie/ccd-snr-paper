@@ -121,7 +121,7 @@ and the total number of incident photons, $N_\gamma$:
 \end{equation}
 The fraction of photons which result in photoelectrons that completely recombine
 before being measured, $P_\text{r}(\lambda) = 1 - P_\text{m}(\lambda)$,
-is given by a binomial distribution and simplifies to:
+is given by
 \begin{equation}
     P_\text{r}(\lambda) = \left[ 1 - \text{CCE}(\lambda) \right]^{\text{IQY}(\lambda)}.
 \end{equation}
