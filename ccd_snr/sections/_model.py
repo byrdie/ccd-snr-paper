@@ -106,7 +106,7 @@ example.
     subsubsection_noise_shot.append(ccd_snr.figures.probability_measurement())
     subsubsection_noise_shot.append(
         r"""
-Ultraviolet solar astronomy is almost always shot-noise limited.
+Ultraviolet solar astronomy is often shot-noise limited \citep{Lemen2012, DePontieu2014}.
 The shot noise measured by the \CCD\ is described by a Poisson distribution with 
 variance, $N_{\gamma,\text{m}}$, the number of photons measured by the sensor 
 (photons which are associated with at least one measured photoelectron).
