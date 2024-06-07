@@ -130,7 +130,7 @@ An example calculation of $P_\text{m}(\lambda)$ for the \AIA\ sensors is plotted
 in Figure~\ref{fig:probability}.
 For long wavelengths,
 $P_\text{m}(\lambda) \approx \text{CCE}(\lambda)$
-since the ideal \QY\ is unity, and for long (X-ray) wavelengths, 
+since the ideal \QY\ is unity, and for short wavelengths, 
 $P_\text{m}(\lambda) \approx 1$ since the ideal \QY\ is large.
 However, in ultraviolet wavelengths, $P_\text{m}(\lambda)$ is more complicated
 and smoothly connects these two extremes. 
