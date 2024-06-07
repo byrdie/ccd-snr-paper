@@ -117,7 +117,7 @@ the probability that at least one electron will be measured by the sensor,
 $P_\text{m}(\lambda)$,
 and the total number of incident photons, $N_\gamma$:
 \begin{equation}
-    N_{\gamma,\text{m}} = T(\lambda) P_\text{m}(\lambda) N_\gamma.
+    \left< N_{\gamma,\text{m}} \right> = T(\lambda) P_\text{m}(\lambda) N_\gamma.
 \end{equation}
 The fraction of photons which result in photoelectrons that completely recombine
 before being measured, $P_\text{r}(\lambda) = 1 - P_\text{m}(\lambda)$,
