@@ -36,8 +36,7 @@ per absorbed photon,
 and $\text{CCE}(\lambda)$ is the charge-collection efficiency, the fraction of 
 photoelectrons measured by the sensor.
 
-$T(\lambda)$ can be determined using any number of multilayer codes, such as IMD
-\citep{Windt1998}.
+$T(\lambda)$ can be determined from the optical constants, using, for example, the IMD code \citep{Windt1998}.
 For this work, we used our software, \texttt{optika} \citep{optika}, 
 which has a convenient Python interface and uses
 the transfer matrix method described in \citet{Yeh1988} with the optical constants
