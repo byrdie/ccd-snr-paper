@@ -107,9 +107,11 @@ example.
     subsubsection_noise_shot.append(
         r"""
 Ultraviolet solar astronomy is often shot-noise limited \citep{Lemen2012, DePontieu2014}.
-The shot noise is described by a Poisson distribution with 
-variance, $\left< N_{\gamma,\text{m}} \right>$, the expectation value of $N_{\gamma,\text{m}$, the number of photons measured by the sensor.
-A critical point of this study is that $N_{\gamma,m}$ includes every photon for which at least one photoelectron is measured.This includes all photons associated with at least one measured photoelectron. 
+The shot noise is described by a Poisson distribution with variance, 
+$\left< N_{\gamma,\text{m}} \right>$, 
+the expectation value of the number of photons measured by the sensor.
+A critical point of this study is that $\left< N_{\gamma,\text{m}} \right>$ 
+includes every photon for which at least one photoelectron is measured.
         
 $\left< N_{\gamma,\text{m}} \right>$ can be expressed as a product of
 the transmissivity of the sensor's back surface,
