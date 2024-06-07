@@ -24,7 +24,7 @@ up to a depth $W$ to create the electric field within the sensor."""
 The \QE\ is a common performance metric for measuring \CCD\ sensitivity and is given 
 by \citet{Janesick2001} as
 \begin{equation} \label{quantum-efficiency}
-    \text{QE}(\lambda) = \frac{N_{e}(\lambda)}{N_\gamma}
+    \text{QE}(\lambda) = \frac{N_{e}}{N_\gamma}
                        = T(\lambda) \times \text{IQY}(\lambda) \times \text{CCE}(\lambda),
 \end{equation}
 where $N_e(\lambda)$ is the number of electrons measured by the sensor for a 
