@@ -21,8 +21,7 @@ up to a depth $W$ to create the electric field within the sensor."""
     subsection_qe = aastex.Subsection("Quantum Efficiency")
     subsection_qe.append(
         r"""
-The \QE\ is a common performance metric for measuring \CCD\ sensitivity and is given 
-by \citet{Janesick2001} as
+The \QE\ is a common performance metric for measuring \CCD\ sensitivity and is
 \begin{equation} \label{quantum-efficiency}
     \text{QE}(\lambda) = \frac{N_{e}}{N_\gamma}
                        = T(\lambda) \times \text{IQY}(\lambda) \times \text{CCE}(\lambda),
