@@ -12,21 +12,21 @@ def model() -> aastex.Section:
     result.append(
         r"""
 In this work, we will model the light-sensitive region of the backilluminated 
-\CCD\ sensor as a epitaxial silicon layer with a thickness $D$, which is coated
+sensor as a epitaxial silicon layer with a thickness $D$, which is coated
 with a thin oxide layer of thickness $\delta$ to provide a realistic transmission 
-coefficent.
+coefficient.
 The illuminated side of the epitaxial layer is considered to be implanted with ions
 up to a depth $W$ to create the electric field within the sensor."""
     )
     subsection_qe = aastex.Subsection("Quantum Efficiency")
     subsection_qe.append(
         r"""
-The \QE\ is a common performance metric for measuring \CCD\ sensitivity and is
+The \QE\ is a common performance metric for measuring sensor sensitivity and is
 \begin{equation} \label{quantum-efficiency}
     \text{QE}(\lambda) = \frac{N_{e}}{N_\gamma}
                        = T(\lambda) \times \text{IQY}(\lambda) \times \text{CCE}(\lambda),
 \end{equation}
-where $N_e(\lambda)$ is the number of electrons measured by the sensor for a 
+where $N_e$ is the number of electrons measured by the sensor for a 
 given wavelength $\lambda$,
 $N_\gamma$ is the total number of photons incident on the sensor,
 $T(\lambda)$ is the transmissivity of the vacuum/SiO$_2$/Si interface , 
@@ -35,7 +35,8 @@ per absorbed photon,
 and $\text{CCE}(\lambda)$ is the charge-collection efficiency, the fraction of 
 photoelectrons measured by the sensor.
 
-$T(\lambda)$ can be determined from the optical constants, using, for example, the IMD code \citep{Windt1998}.
+$T(\lambda)$ can be determined from the optical constants, using, for example, 
+the IMD code \citep{Windt1998}.
 For this work, we used our software, \texttt{optika} \citep{optika}, 
 which has a convenient Python interface and uses
 the transfer matrix method described in \citet{Yeh1988} with the optical constants
@@ -89,7 +90,7 @@ In \citet{Stern1994}, the authors define an effective \QE\ as
 \begin{equation} \label{eqe}
     \text{EQE}(\lambda) = T(\lambda) \times \text{CCE}(\lambda),
 \end{equation}
-which is the quantity that is typically measured when calibrating a \CCD\ sensor
+which is the quantity that is typically measured when calibrating a image sensor
 \citep{Stern1994,Stern2004,Boerner2012}.
 In Figure \ref{fig:eqe}, we've plotted the measured, effective \QE\ of the
 \AIA\ \CCDs, and a fit of Equation \ref{eqe} to the data, which varied $\eta_0$,

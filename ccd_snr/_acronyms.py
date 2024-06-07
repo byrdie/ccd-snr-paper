@@ -11,6 +11,7 @@ def acronyms() -> list[aastex.Acronym]:
     """
     return [
         aastex.Acronym("CCD", "charge-coupled device", plural=True),
+        aastex.Acronym("CMOS", "complementary metal–oxide–semiconductor"),
         aastex.Acronym("FUV", "far ultraviolet"),
         aastex.Acronym("EUV", "extreme ultraviolet"),
         aastex.Acronym("CCE", "charge-collection efficiency"),

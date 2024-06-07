@@ -5,8 +5,9 @@ def introduction() -> aastex.Section:
     result = aastex.Section("Introduction")
     result.append(
         r"""
-Backilluminated \CCDs\ are ubiquitous in ultraviolet solar astronomy, 
-and are currently used in all of NASA's most ambitious solar missions,
+Backilluminated, silicon-based image sensors such as \CCDs\ and \CMOS\ sensors 
+are ubiquitous in ultraviolet solar astronomy, 
+and are currently used in many of NASA's most ambitious solar missions,
 such as \AIA\ \citep{Lemen2012} and \IRIS\ \citep{DePontieu2014}.
 Despite their popularity, measuring the \QE\ of \CCDs\ with high spectral resolution
 across the \FUV\ and \EUV\ remains difficult due to the expense of calibrated, 
