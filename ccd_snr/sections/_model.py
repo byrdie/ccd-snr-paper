@@ -113,7 +113,7 @@ A critical point of this study is that $N_{\gamma,m}$ includes every photon for 
         
 $\left< N_{\gamma,\text{m}} \right>$ can be expressed as a product of
 the transmissivity of the sensor's back surface,
-the probability that at least one electron will be measured by the sensor, 
+the probability that an absorbed photon will result in at least one electron being measured by the sensor, 
 $P_\text{m}(\lambda)$,
 and the total number of incident photons, $N_\gamma$:
 \begin{equation}
